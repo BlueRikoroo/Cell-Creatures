@@ -3,7 +3,7 @@
 
 event_inherited()
 
-var force = 1
+var force = 2
 var lID = cell_create(-20,0,force)
 lID = cell_create_connected(-20,20,force,cell_get_object(lID)) 
 lID = cell_create_connected(-20,40,force,cell_get_object(lID)) 

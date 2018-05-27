@@ -1,8 +1,8 @@
 {
-    "id": "bc34179e-c6c7-4c76-a9bf-372326ccfff9",
+    "id": "70bbd72e-04d2-4039-ba9e-c572d2e656ac",
     "modelName": "GMScript",
     "mvc": "1.0",
-    "name": "cell_create_connected",
+    "name": "debug_variable",
     "IsCompatibility": false,
     "IsDnD": false
 }

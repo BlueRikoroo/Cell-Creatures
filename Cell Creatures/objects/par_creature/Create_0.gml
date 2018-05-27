@@ -1,6 +1,7 @@
 /// @description 
 // 
 
+size = 1
 rotation = 0
 cell_array = noone
 cell_count = 0
