@@ -11,5 +11,8 @@ cell_array[cell_count,5] = noone
 cell_array[cell_count,6] = 0
 cell_array[cell_count,7] = 0
 
+cell_array[cell_count,3].uniqueID = uniqueID
+cell_array[cell_count,3].creature = id
+
 cell_count++
 return cell_count-1

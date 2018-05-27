@@ -11,5 +11,8 @@ cell_array[cell_count,5] = argument3
 cell_array[cell_count,6] = cell_array[cell_count,3].x-argument3.x
 cell_array[cell_count,7] = cell_array[cell_count,3].y-argument3.y
 
+cell_array[cell_count,3].uniqueID = uniqueID
+cell_array[cell_count,3].creature = id
+
 cell_count++
 return cell_count-1

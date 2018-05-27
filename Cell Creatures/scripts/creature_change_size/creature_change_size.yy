@@ -1,8 +1,8 @@
 {
-    "id": "c6136e38-df81-4073-8bc6-9377c5855659",
+    "id": "f107ae43-51c5-4347-8c94-d57432680ed0",
     "modelName": "GMScript",
     "mvc": "1.0",
-    "name": "cell_change_size",
+    "name": "creature_change_size",
     "IsCompatibility": false,
     "IsDnD": false
 }

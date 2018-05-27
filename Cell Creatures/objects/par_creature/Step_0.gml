@@ -2,6 +2,18 @@
 // 
 if is_array(cell_array){
 	for (var i = array_height_2d(cell_array)-1;i >= 0; i--){
+		if !instance_exists(cell_array[i,3]){
+			for(var k = i; k < array_height_2d(cell_array)-1; k++){
+				for(var p = array_length_2d(cell_array,k)-1;p>=0;p--)
+					cell_array[k,p] = 	cell_array[k+1,p]
+			}
+			cell_count--
+			continue
+		}
+		if cell_array[i,4] and !instance_exists(cell_array[i,5]){
+			cell_array[i,4] = false
+		}	
+		
 		with(cell_array[i,3]){
 			var ox, oy, xpos, ypos;
 			if other.cell_array[i,4]{
@@ -36,6 +48,36 @@ if is_array(cell_array){
 				vspeed -= perpdis*-sin(degtorad(perpdir))
 				
 				//debug_variable(true,direction,dirto,perpdir)
+			}
+		}
+	}
+}
+//Digestion Arrays
+if is_array(other.digestion_array){
+	for (var i = array_height_2d(digestion_array)-1;i >= 0; i--){
+		if !instance_exists(digestion_array[i,0]) or !instance_exists(digestion_array[i,1]){
+			for(var k = i; k < array_height_2d(digestion_array)-1; k++){
+				digestion_array[k,0] = 	digestion_array[k+1,0]
+				digestion_array[k,1] = 	digestion_array[k+1,1]
+			}
+			digestion_count--
+			continue
+		}
+		
+		with(par_cell){
+			if uniqueID	!= other.uniqueID{
+				var obj1 = other.digestion_array[i,0]
+				var obj2 = other.digestion_array[i,1]
+				if collision_line(obj1.x,obj1.y,obj2.x,obj2.y,id,0,false){
+					var otherrad = min(obj1.radius,obj2.radius)
+					var sizediff = 0.001*otherrad/radius
+					with(other){
+						creature_change_size(size+(sizediff/cell_count)*(other.radius/10))	
+					}
+					cell_change_size(1-sizediff)
+					if radius < otherrad*0.2
+						instance_destroy()
+				}
 			}
 		}
 	}

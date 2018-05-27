@@ -16,6 +16,6 @@ if keyboard_check(ord("R"))
 	rotation+=2
 	
 if keyboard_check_pressed(ord("E"))
-	cell_change_size(size*2)
+	creature_change_size(size*2)
 else if keyboard_check_pressed(ord("W"))
-	cell_change_size(size/2)
+	creature_change_size(size/2)
