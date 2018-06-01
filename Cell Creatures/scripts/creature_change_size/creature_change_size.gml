@@ -12,4 +12,5 @@ if is_array(cell_array){
 		cell_array[i,6] *= diff
 		cell_array[i,7] *= diff
 	}
+	size *= diff
 }

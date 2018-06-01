@@ -70,9 +70,12 @@ if is_array(other.digestion_array){
 				var obj2 = other.digestion_array[i,1]
 				if collision_line(obj1.x,obj1.y,obj2.x,obj2.y,id,0,false){
 					var otherrad = min(obj1.radius,obj2.radius)
-					var sizediff = 0.001*otherrad/radius
+					var percentile = 0.001*min(1,(32/point_distance(obj1.x,obj1.y,obj2.x,obj2.y)))
+					var sizediff = percentile*otherrad/radius
+					var sizediffother = percentile*radius/otherrad
 					with(other){
-						creature_change_size(size+(sizediff/cell_count)*(other.radius/10))	
+						creature_increase_size(sizediffother/cell_count)
+						creature_adjust_size()
 					}
 					cell_change_size(1-sizediff)
 					if radius < otherrad*0.2
@@ -80,5 +83,20 @@ if is_array(other.digestion_array){
 				}
 			}
 		}
+	}
+}
+
+if controlling{
+	if keyboard_check(ord("A"))
+		rotation+=rotationSpeed
+	if keyboard_check(ord("D"))
+		rotation-=rotationSpeed
+	if keyboard_check(ord("W")){
+		x+=lengthdir_x(maxSpeed,rotation+faceingDirection)
+		y+=lengthdir_y(maxSpeed,rotation+faceingDirection)
+	}
+	if keyboard_check(ord("S")){
+		x-=lengthdir_x(maxSpeed,rotation+faceingDirection)
+		y-=lengthdir_y(maxSpeed,rotation+faceingDirection)
 	}
 }

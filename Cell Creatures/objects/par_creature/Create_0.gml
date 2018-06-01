@@ -21,3 +21,7 @@ digestion_count = 0
 0 = first cell
 1 = second cell
 */
+controlling = false
+maxSpeed = 1
+rotationSpeed = 0.5
+faceingDirection = 0

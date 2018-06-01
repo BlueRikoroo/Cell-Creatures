@@ -14,6 +14,8 @@ if is_array(other.digestion_array){
 		
 		var obj1 = other.digestion_array[i,0]
 		var obj2 = other.digestion_array[i,1]
+		draw_set_alpha(min(1,32/point_distance(obj1.x,obj1.y,obj2.x,obj2.y)))
 		draw_line(obj1.x,obj1.y,obj2.x,obj2.y)
+		draw_set_alpha(1)
 	}
 }
